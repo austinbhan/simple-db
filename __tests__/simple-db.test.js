@@ -15,7 +15,7 @@ describe('simple database', () => {
     await fs.mkdir(TEST_DIR, { recursive: true });
   });
 
-  it('get(id) returns file contents', async () => {
+  it('get(id) returns file contents', async () => { // Test 1
     const obj = {
       name: '1234'
     };
@@ -27,7 +27,7 @@ describe('simple database', () => {
     expect(result).toEqual(obj);
   });
 
-  it('save(obj) turns object name into [id].json', async () => {
+  it('save(obj) turns object name into [id].json', async () => { // Test 2
     const obj = {
       name: '1234'
     };
@@ -42,6 +42,22 @@ describe('simple database', () => {
     console.log('line 40', obj);
 
     expect(expected).toEqual(obj);
+  });
+
+  it('getall gets all objects in the directory', async () => { // Test 3 
+    // Create a series of objects
+    const objects = [
+      { name: 'Bob' },
+      { name: 'Dylan' },
+      { name: 'Steve' },
+      { name: 'George' },  
+    ]; 
+    // Loop through each, (for loop)
+    // and save each
+
+    // then getAll from simple-db
+
+    // Expect the created object (in test) to match the getAll from simple-db
   });
 
 });
