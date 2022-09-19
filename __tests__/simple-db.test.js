@@ -46,18 +46,30 @@ describe('simple database', () => {
 
   it('getall gets all objects in the directory', async () => { // Test 3 
     // Create a series of objects
-    const objects = [
+    const musicians = [
       { name: 'Bob' },
       { name: 'Dylan' },
       { name: 'Steve' },
       { name: 'George' },  
     ]; 
-    // Loop through each, (for loop)
+    // Loop through each, (for loop) 
     // and save each
+    const db = new SimpleDb(TEST_DIR);
 
+    musicians.forEach(async object => {
+      await db.save(object);
+    });
     // then getAll from simple-db
+    expect(await db.getAll()).toEqual([
+      { name: expect.any(String) },
+      { name: expect.any(String) },
+      { name: expect.any(String) },
+      { name: expect.any(String) }
+    ]);
 
     // Expect the created object (in test) to match the getAll from simple-db
+
+    
   });
 
 });
